@@ -77,6 +77,7 @@ def add_to_cart(request):
     if serializer.is_valid():
         product_id = serializer.validated_data['product_id']
         quantity = serializer.validated_data['quantity']
+        replace = serializer.validated_data['replace']
         user_id = 1  # Упрощено: один пользователь
         
         try:
@@ -95,7 +96,10 @@ def add_to_cart(request):
         )
         
         if not created:
-            cart_item.quantity += quantity
+            if replace:
+                cart_item.quantity = quantity
+            else:
+                cart_item.quantity += quantity
             cart_item.save()
         
         return Response({
@@ -105,3 +109,19 @@ def add_to_cart(request):
         }, status=status.HTTP_201_CREATED)
     
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['DELETE'])
+def remove_from_cart(request, product_id):
+    """DELETE /cart/remove/:product_id - удаление товара из корзины"""
+    user_id = 1  # Упрощено: один пользователь
+    
+    try:
+        cart_item = CartItem.objects.get(user_id=user_id, product_id=product_id)
+        cart_item.delete()
+        return Response({'message': 'Product removed from cart'}, status=status.HTTP_200_OK)
+    except CartItem.DoesNotExist:
+        return Response(
+            {'error': 'Product not found in cart'}, 
+            status=status.HTTP_404_NOT_FOUND
+        )

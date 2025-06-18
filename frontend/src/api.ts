@@ -29,6 +29,18 @@ export const api = {
     });
   },
 
+  updateCartItem: async (productId: number, quantity: number): Promise<void> => {
+    await axios.post(`${API_BASE}/cart/add/`, {
+      product_id: productId,
+      quantity,
+      replace: true, // Заменить количество, а не добавить
+    });
+  },
+
+  removeFromCart: async (productId: number): Promise<void> => {
+    await axios.delete(`${API_BASE}/cart/remove/${productId}/`);
+  },
+
   // Checkout
   checkout: async (): Promise<{ success: boolean; payment_id?: string }> => {
     try {
