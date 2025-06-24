@@ -1,8 +1,8 @@
 package main
 
 type CheckoutRequest struct {
-	UserID int `json:"user_id"`
-    Promo string `json:"promo"`
+	UserID int    `json:"user_id"`
+	Promo  string `json:"promo"`
 }
 
 type CartResponse struct {
@@ -17,11 +17,12 @@ type CartItem struct {
 }
 
 type Product struct {
-	ID          int     `json:"id"`
-	Name        string  `json:"name"`
-	Description string  `json:"description"`
-	ImageURL    string  `json:"image_url"`
-	Price       float64 `json:"price"`
+	ID                 int     `json:"id"`
+	Name               string  `json:"name"`
+	Description        string  `json:"description"`
+	ImageURL           string  `json:"image_url"`
+	Price              float64 `json:"price"`
+	DiscountApplicable bool    `json:"discount_applicable"`
 }
 
 type NotificationRequest struct {

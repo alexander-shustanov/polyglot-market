@@ -42,11 +42,15 @@ export const api = {
     },
 
     // Checkout
-    checkout: async (): Promise<{ success: boolean; payment_id?: string }> => {
+    checkout: async (promo: string): Promise<{ success: boolean; payment_id?: string }> => {
         try {
             const response = await axios.post(`${PAYMENT_API}/checkout`, {
                 user_id: 1,
+                promo
             });
+
+            await axios.delete(`${MARKET_API_BASE}/cart/1/`);
+
             return response.data;
         } catch (error) {
             console.error('Checkout failed:', error);

@@ -7,6 +7,7 @@
       "description": "Powerful laptop for professionals with M3 Pro chip, 18GB RAM, 512GB SSD. Perfect for development, design, and video editing.",
       "image_url": "https://picsum.photos/400/300?random=1",
       "price": "2499.00",
+      "discount_applicable": true,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -19,6 +20,7 @@
       "description": "Latest smartphone with A17 Pro chip, titanium design, 48MP camera system, and USB-C. Available in Natural Titanium.",
       "image_url": "https://picsum.photos/400/300?random=2",
       "price": "999.00",
+      "discount_applicable": true,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -31,6 +33,7 @@
       "description": "Premium wireless earbuds with active noise cancellation, spatial audio, and up to 30 hours of listening time with charging case.",
       "image_url": "https://picsum.photos/400/300?random=3",
       "price": "249.00",
+      "discount_applicable": true,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -43,6 +46,7 @@
       "description": "Versatile tablet with M2 chip for work and creativity. 10.9-inch Liquid Retina display, perfect for drawing and productivity.",
       "image_url": "https://picsum.photos/400/300?random=4",
       "price": "599.00",
+      "discount_applicable": true,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -55,6 +59,7 @@
       "description": "Advanced smartwatch with health monitoring, ECG, blood oxygen tracking, and always-on Retina display. 45mm Midnight Aluminum.",
       "image_url": "https://picsum.photos/400/300?random=5",
       "price": "399.00",
+      "discount_applicable": false,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -67,6 +72,7 @@
       "description": "Industry-leading noise canceling headphones with 30-hour battery life and crystal-clear hands-free calling.",
       "image_url": "https://picsum.photos/400/300?random=6",
       "price": "399.99",
+      "discount_applicable": false,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -79,6 +85,7 @@
       "description": "Ultra-thin laptop with 13.4-inch InfinityEdge display, Intel Core i7, 16GB RAM, 1TB SSD. Perfect for business and travel.",
       "image_url": "https://picsum.photos/400/300?random=7",
       "price": "1299.00",
+      "discount_applicable": true,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -91,6 +98,7 @@
       "description": "Premium Android smartphone with S Pen, 200MP camera, AI-powered features, and titanium frame. 256GB storage.",
       "image_url": "https://picsum.photos/400/300?random=8",
       "price": "1199.00",
+      "discount_applicable": false,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -103,6 +111,7 @@
       "description": "Gaming console with vibrant 7-inch OLED screen, enhanced audio, and 64GB internal storage. Includes Joy-Con controllers.",
       "image_url": "https://picsum.photos/400/300?random=9",
       "price": "349.99",
+      "discount_applicable": true,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -115,6 +124,7 @@
       "description": "Advanced wireless mouse with ultra-fast scrolling, customizable buttons, and multi-device connectivity. Ergonomic design.",
       "image_url": "https://picsum.photos/400/300?random=10",
       "price": "99.99",
+      "discount_applicable": true,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -127,6 +137,7 @@
       "description": "Wireless mechanical keyboard with hot-swappable switches, RGB backlighting, and 87-key tenkeyless layout.",
       "image_url": "https://picsum.photos/400/300?random=11",
       "price": "89.00",
+      "discount_applicable": false,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -139,6 +150,7 @@
       "description": "27-inch UltraFine 4K display with USB-C connectivity, HDR10 support, and 99% sRGB color accuracy. Perfect for creative work.",
       "image_url": "https://picsum.photos/400/300?random=12",
       "price": "499.00",
+      "discount_applicable": true,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -151,6 +163,7 @@
       "description": "High-capacity portable charger with 26800mAh battery, fast charging technology, and 3 USB ports. Charge multiple devices.",
       "image_url": "https://picsum.photos/400/300?random=13",
       "price": "65.99",
+      "discount_applicable": false,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -163,6 +176,7 @@
       "description": "True wireless earbuds with world-class noise cancellation, 6-hour battery life, and secure, comfortable fit.",
       "image_url": "https://picsum.photos/400/300?random=14",
       "price": "279.00",
+      "discount_applicable": true,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -175,6 +189,7 @@
       "description": "Professional gaming mouse with 30K DPI sensor, 90-hour battery life, and ergonomic design for competitive gaming.",
       "image_url": "https://picsum.photos/400/300?random=15",
       "price": "89.99",
+      "discount_applicable": false,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -187,6 +202,7 @@
       "description": "Wireless gaming headset with lossless 2.4GHz connection, 24-hour battery life, and ClearCast microphone.",
       "image_url": "https://picsum.photos/400/300?random=16",
       "price": "149.99",
+      "discount_applicable": true,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -199,6 +215,7 @@
       "description": "High-performance gaming laptop with RTX 4060, AMD Ryzen 7, 16GB RAM, 1TB SSD, and 15.6-inch 144Hz display.",
       "image_url": "https://picsum.photos/400/300?random=17",
       "price": "1599.00",
+      "discount_applicable": true,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -211,6 +228,7 @@
       "description": "Professional mirrorless camera with 24.2MP sensor, 4K video recording, and advanced autofocus system. Body only.",
       "image_url": "https://picsum.photos/400/300?random=18",
       "price": "2499.00",
+      "discount_applicable": false,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -223,6 +241,7 @@
       "description": "Compact drone with 4K HDR video, omnidirectional obstacle sensing, and 34-minute flight time. Perfect for content creators.",
       "image_url": "https://picsum.photos/400/300?random=19",
       "price": "759.00",
+      "discount_applicable": false,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -235,6 +254,7 @@
       "description": "Health and fitness smartwatch with GPS, heart rate monitoring, sleep tracking, and 6+ day battery life.",
       "image_url": "https://picsum.photos/400/300?random=20",
       "price": "199.95",
+      "discount_applicable": true,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -247,6 +267,7 @@
       "description": "Waterproof e-reader with 6.8-inch glare-free display, adjustable warm light, and weeks of battery life. 8GB storage.",
       "image_url": "https://source.unsplash.com/400x300/?ebook,kindle",
       "price": "139.99",
+      "discount_applicable": false,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -259,6 +280,7 @@
       "description": "Premium wireless earbuds with active noise cancellation, custom audio, and seamless Google Assistant integration.",
       "image_url": "https://source.unsplash.com/400x300/?earbuds,wireless",
       "price": "199.00",
+      "discount_applicable": true,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -271,6 +293,7 @@
       "description": "Versatile 2-in-1 laptop with 13-inch touchscreen, Intel Core i5, 8GB RAM, 256GB SSD, and detachable keyboard.",
       "image_url": "https://source.unsplash.com/400x300/?tablet,surface",
       "price": "999.99",
+      "discount_applicable": false,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -283,6 +306,7 @@
       "description": "Mechanical gaming keyboard with Cherry MX switches, dedicated macro keys, and per-key RGB lighting.",
       "image_url": "https://source.unsplash.com/400x300/?keyboard,gaming",
       "price": "199.99",
+      "discount_applicable": false,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
@@ -295,6 +319,7 @@
       "description": "Live content creation controller with 15 customizable LCD keys for streamers, content creators, and productivity.",
       "image_url": "https://source.unsplash.com/400x300/?streaming,tech",
       "price": "149.99",
+      "discount_applicable": false,
       "created_at": "2024-01-01T10:00:00Z",
       "updated_at": "2024-01-01T10:00:00Z"
     }
