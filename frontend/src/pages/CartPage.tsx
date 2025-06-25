@@ -7,7 +7,6 @@ import QuantityControl from '../components/QuantityControl';
 function CartPage() {
     const [cart, setCart] = useState<Cart | null>(null);
     const [loading, setLoading] = useState(true);
-    const [promo, setPromo] = useState<string>('');
     const [error, setError] = useState<string>('');
     const [checkingOut, setCheckingOut] = useState(false);
     const [updatingItems, setUpdatingItems] = useState<Set<number>>(new Set());
@@ -70,7 +69,7 @@ function CartPage() {
 
         setCheckingOut(true);
         try {
-            const result = await api.checkout(promo);
+            const result = await api.checkout();
             if (result.success) {
                 alert(`Order placed successfully! Payment ID: ${result.payment_id}`);
                 // Refresh cart after successful checkout
@@ -111,8 +110,7 @@ function CartPage() {
                         cart={cart}
                         handleCheckout={handleCheckout}
                         checkingOut={checkingOut}
-                        updatingItems={updatingItems}
-                        setPromo={setPromo} />
+                        updatingItems={updatingItems} />
                 </>
             )}
         </div>
@@ -124,9 +122,8 @@ let CartTotal = (props: {
     handleCheckout: () => Promise<void>,
     checkingOut: boolean,
     updatingItems: Set<number>,
-    setPromo: (promo: string) => void,
 }) => {
-    let { cart, handleCheckout, checkingOut, updatingItems, setPromo } = props;
+    let { cart, handleCheckout, checkingOut, updatingItems } = props;
 
     return <div className="cart-total">
         <h2>Total: ${cart.total.toFixed(2)}</h2>
@@ -137,10 +134,6 @@ let CartTotal = (props: {
             <Link to="/products">
                 <button className="btn btn-secondary">Continue Shopping</button>
             </Link>
-
-            <p />
-
-            <input onChange={(element) => { setPromo(element.currentTarget.value) }} />
 
             <p />
 

@@ -1,22 +1,10 @@
 # 🛍 Polyglot Shop - Полиглотный интернет-магазин
 
-Демонстрационный проект интернет-магазина, состоящий из четырех микросервисов на разных языках программирования и технологиях.
+Демонстрационный проект интернет-магазина, состоящий из трех микросервисов на разных языках программирования и технологиях, а также Frontend UI для него.
 
 ## 🏗 Архитектура
 
-```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Frontend      │    │    Backend      │    │ Payment Service │    │ Notification    │
-│ React+TypeScript│───▶│ Django+PostgreSQL│◀───│      Go         │───▶│  Spring Boot    │
-│    Port 5173    │    │    Port 8000    │    │    Port 8080    │    │    Port 8081    │
-└─────────────────┘    └─────────────────┘    └─────────────────┘    └─────────────────┘
-                                ▲                                              │
-                                │                                              ▼
-                       ┌─────────────────┐                           ┌─────────────────┐
-                       │   PostgreSQL    │                           │    Telegram     │
-                       │    Port 5432    │                           │      API        │
-                       └─────────────────┘                           └─────────────────┘
-```
+![img.png](project-diagram.png)
 
 ## 🚀 Быстрый старт
 
@@ -174,10 +162,6 @@ market-polyglot/
 ├── 📁 notification-service/ # Spring Boot
 │   ├── src/main/java/
 │   └── pom.xml
-├── 📁 scripts/             # Автоматизация
-│   ├── setup.sh
-│   ├── start-all.sh
-│   └── test-api.sh
 ├── docker-compose.yml      # PostgreSQL
 └── README.md
 ```
@@ -221,82 +205,3 @@ cd notification-service && ./mvnw clean install
 - Подготовлены скрипты для автоматизации
 - Документация по настройке и запуску
 - Примеры API запросов для тестирования
-
----
-
-**Автор**: Claude Sonnet 4  
-**Техническое задание**: Выполнено полностью согласно требованиям
-| Database | PostgreSQL | - | 5432 |
-
-## 📂 Структура проекта
-
-```
-market-polyglot/
-├── 📁 frontend/              # React + TypeScript
-│   ├── src/
-│   │   ├── pages/           # Страницы приложения
-│   │   ├── components/      # React компоненты
-│   │   └── api.ts          # API клиент
-│   └── package.json
-├── 📁 backend/              # Django + PostgreSQL  
-│   ├── shop/               # Django приложение
-│   ├── fixtures/           # Начальные данные
-│   └── manage.py
-├── 📁 payment-service/      # Go сервис
-│   ├── main.go
-│   └── go.mod
-├── 📁 notification-service/ # Spring Boot
-│   ├── src/main/java/
-│   └── pom.xml
-├── 📁 scripts/             # Автоматизация
-│   ├── setup.sh
-│   ├── start-all.sh
-│   └── test-api.sh
-├── docker-compose.yml      # PostgreSQL
-└── README.md
-```
-
-## ⚠️ Troubleshooting
-
-**База данных:**
-```bash
-docker-compose up -d postgres
-# Подождите 10 секунд перед запуском Django
-```
-
-**CORS ошибки:**
-- Убедитесь, что все сервисы на правильных портах
-- Проверьте Django settings.py
-
-**Go модули:**
-```bash
-cd payment-service && go mod tidy
-```
-
-**Java/Maven:**
-```bash
-cd notification-service && ./mvnw clean install
-```
-
-## 📋 Требования ТЗ
-
-✅ **Полиглотность**: React+TS, Django+Python, Go, Spring Boot+Java  
-✅ **Связанность**: Все модули взаимодействуют по HTTP  
-✅ **PostgreSQL**: Используется в Django  
-✅ **Raw SQL**: Реализован в получении корзины  
-✅ **TODO компонент**: SimilarProducts с заглушкой  
-✅ **Telegram API**: Настроен в Spring Boot  
-✅ **Минимализм**: Только необходимый функционал  
-
-## 📝 Дополнительно
-
-- Все сервисы имеют health check endpoints
-- Настроены CORS для работы с фронтендом  
-- Подготовлены скрипты для автоматизации
-- Документация по настройке и запуску
-- Примеры API запросов для тестирования
-
----
-
-**Автор**: Claude Sonnet 4  
-**Техническое задание**: Выполнено полностью согласно требованиям

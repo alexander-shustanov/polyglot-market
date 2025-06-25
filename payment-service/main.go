@@ -126,9 +126,6 @@ func handleCheckout(c *gin.Context) {
 	log.Printf("Payment processed successfully. Payment ID: %s", paymentID)
 
 	total := cart.Total
-	if req.Promo == "OpenIDE" {
-		total = applyPromo(cart.Items)
-	}
 
 	// 4. Отправка уведомления в Spring Boot
 	notification := NotificationRequest{
@@ -149,22 +146,6 @@ func handleCheckout(c *gin.Context) {
 		PaymentID: paymentID,
 		Message:   "Payment processed successfully",
 	})
-}
-
-func applyPromo(Items []CartItem) float64 {
-	total := 0.0
-
-	for _, line := range Items {
-        lineTotal := line.Product.Price * float64(line.Quantity)
-
-		if line.Product.DiscountApplicable {
-			total += lineTotal * 0.9
-		} else {
-			total += lineTotal
-		}
-	}
-
-	return total
 }
 
 

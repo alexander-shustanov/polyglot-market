@@ -3,53 +3,33 @@ from django.http import JsonResponse
 from rest_framework import generics, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+
 from .models import Product, CartItem
-from .serializers import ProductSerializer, CartItemSerializer, AddToCartSerializer
+from .serializers import ProductSerializer, AddToCartSerializer
 
 
 class ProductListView(generics.ListAPIView):
-    """GET /products/ - список всех товаров"""
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
 
 class ProductDetailView(generics.RetrieveAPIView):
-    """GET /products/:id - один товар"""
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
 
-@api_view(['GET', 'DELETE'])
+@api_view(['GET'])
 def manage_cart(request, user_id):
-    if request.method == 'GET':
-        return get_cart(user_id)
-    elif request.method == 'DELETE':
-        return clear_cart(user_id)
-
-
-def clear_cart(user_id):
     with connection.cursor() as cursor:
         cursor.execute("""
-DELETE FROM shop_cartitem WHERE user_id = %s
-        """, [user_id])
-    return JsonResponse({
-        'ok': True
-    })
-
-
-def get_cart(user_id):
-    with connection.cursor() as cursor:
-        # Raw SQL запрос для получения корзины с товарами
-        cursor.execute("""
-                SELECT 
+                SELECT
                     ci.id as cart_item_id,
                     ci.quantity,
                     p.id as product_id,
                     p.name,
                     p.description,
                     p.image_url,
-                    p.price,
-                    p.discount_applicable
+                    p.price
                 FROM shop_cartitem ci
                 JOIN shop_product p ON ci.product_id = p.id
                 WHERE ci.user_id = %s
@@ -58,12 +38,11 @@ def get_cart(user_id):
 
         rows = cursor.fetchall()
 
-        # Формируем ответ
         items = []
         total = 0
 
         for row in rows:
-            cart_item_id, quantity, product_id, name, description, image_url, price, discount_applicable = row
+            cart_item_id, quantity, product_id, name, description, image_url, price = row
             item_total = float(price) * quantity
             total += item_total
 
@@ -76,7 +55,6 @@ def get_cart(user_id):
                     'description': description,
                     'image_url': image_url,
                     'price': float(price),
-                    'discount_applicable': discount_applicable
                 }
             })
 
@@ -88,13 +66,12 @@ def get_cart(user_id):
 
 @api_view(['POST'])
 def add_to_cart(request):
-    """POST /cart/add/ - добавление товара в корзину"""
     serializer = AddToCartSerializer(data=request.data)
     if serializer.is_valid():
         product_id = serializer.validated_data['product_id']
         quantity = serializer.validated_data['quantity']
         replace = serializer.validated_data['replace']
-        user_id = 1  # Упрощено: один пользователь
+        user_id = 1
 
         try:
             product = Product.objects.get(id=product_id)
@@ -104,7 +81,6 @@ def add_to_cart(request):
                 status=status.HTTP_404_NOT_FOUND
             )
 
-        # Добавляем или обновляем количество в корзине
         cart_item, created = CartItem.objects.get_or_create(
             user_id=user_id,
             product=product,
@@ -129,8 +105,7 @@ def add_to_cart(request):
 
 @api_view(['DELETE'])
 def remove_from_cart(request, product_id):
-    """DELETE /cart/remove/:product_id - удаление товара из корзины"""
-    user_id = 1  # Упрощено: один пользователь
+    user_id = 1
 
     try:
         cart_item = CartItem.objects.get(user_id=user_id, product_id=product_id)

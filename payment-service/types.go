@@ -2,7 +2,6 @@ package main
 
 type CheckoutRequest struct {
 	UserID int    `json:"user_id"`
-	Promo  string `json:"promo"`
 }
 
 type CartResponse struct {
@@ -22,7 +21,6 @@ type Product struct {
 	Description        string  `json:"description"`
 	ImageURL           string  `json:"image_url"`
 	Price              float64 `json:"price"`
-	DiscountApplicable bool    `json:"discount_applicable"`
 }
 
 type NotificationRequest struct {
